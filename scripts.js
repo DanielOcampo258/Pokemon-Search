@@ -43,8 +43,14 @@ const getPokemon = (rawInput) =>{
 }
 
 const setStrengthAndWeakness = (type) =>{
-   
-    console.log(eval(type).strongAgainst)
+   let strongAgainstEl= document.getElementById("pkm-strongAgainst")
+   if(type != "normal")
+        strongAgainstEl.innerText = "Strong Against Type(s):  "
+    else    
+        strongAgainstEl.innerText = ""
+    eval(type).strongAgainst.map(sType =>{
+        strongAgainstEl.innerText += ` ${sType} `
+    })
 }
 /**
  * Removes the introduction text to make way for the Pokemon Wrapper
