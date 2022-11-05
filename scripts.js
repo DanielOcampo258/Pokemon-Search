@@ -30,12 +30,14 @@ const getPokemon = (rawInput) =>{
        pkmnName.innerText = `${capitalizeFirstLetter(data.name)}` 
        pkmnImage.setAttribute("src", data.sprites.front_default)
        typeElem.innerText = "Type(s): "
+       const typesArray = []
        for(let i=0; i<data.types.length; i++){
     
         typeElem.innerText += ` ${capitalizeFirstLetter(data.types[i].type.name)} |`
-        setStrengthAndWeakness(data.types[i].type.name)
+        typesArray.push(data.types[i].type.name)
         
       }
+      setStrengthAndWeakness(typesArray)
       typeElem.innerText = typeElem.innerText.slice(0, -1);
     
     })
@@ -48,30 +50,61 @@ const getPokemon = (rawInput) =>{
     });
 }
 
-const setStrengthAndWeakness = (type) =>{
+const setStrengthAndWeakness = (typesArray) =>{
    let strongAgainstEl = document.getElementById("pkm-strongAgainst")
    let weakAgainstEl = document.getElementById("pkm-weakAgainst")
-    
-  
+   let weakAgainstArr = []
+   let strongAgainstArr = []
+   let resistantAgainstArr = []
 
-    let weakAgainst = eval(type).weakAgainst
-    console.log("Weak against " + weakAgainst)
-    console.log("Strong against " + eval(type).strongAgainst)
-    eval(type).strongAgainst.map(sType =>{
-        for( weakType of weakAgainst){ 
-            if(sType == weakType && (sType != "Dragon"  && sType != "Ghost")){
-                const index = weakAgainst.indexOf(weakType)
-                if(index > -1){
-                    weakAgainst.splice(index, 1)
-                }
-            }
-
-      }
-      strongAgainstEl.innerText += ` ${sType} `
+   for (type of typesArray){
+    weakAgainstArr = weakAgainstArr.concat(eval(type).weakAgainst)
+    strongAgainstArr = strongAgainstArr.concat(eval(type).strongAgainst)
+    resistantAgainstArr = resistantAgainstArr.concat(eval(type).resistantAgainst)
+   }
    
+   //Correct for double types
+   if(typesArray.length == 2){
+    strongAgainstArr = strongAgainstArr.filter((type,index) =>{
+        return strongAgainstArr.indexOf(type) == index 
+        && !typesArray.includes(type.toLowerCase())
     })
 
-    weakAgainst.map(wType => weakAgainstEl.innerText += ` ${wType} `)
+    weakAgainstArr = weakAgainstArr.filter((type,index) =>{
+    return weakAgainstArr.indexOf(type) == index //removes duplicates from weakness list
+    && !strongAgainstArr.includes(type)  // removes overlapping values from pokemons strongAgainst list
+    && !typesArray.includes(type.toLowerCase())  // removes the Pokemons type from the weakness list
+    && !resistantAgainstArr.includes(type) //removes type that Pokemon is resistant to from weakness list
+    })
+   }
+   if(!typesArray.includes("normal") || typesArray.length != 1){
+     strongAgainstArr.map(sType => strongAgainstEl.innerText += ` ${sType}`)
+     
+   }else{
+    strongAgainstEl.innerText = ""
+   }
+   weakAgainstArr.map(wType => weakAgainstEl.innerText += ` ${wType} `)
+  console.log(weakAgainstArr)
+
+
+//     let weakAgainst = eval(type).weakAgainst
+//     console.log("Weak against " + weakAgainst)
+//     console.log("Strong against " + eval(type).strongAgainstArr)
+//     eval(type).strongAgainst.map(sType =>{
+//         for( weakType of weakAgainst){ 
+//             if(sType == weakType && (sType != "Dragon"  && sType != "Ghost")){
+//                 const index = weakAgainst.indexOf(weakType)
+//                 if(index > -1){
+//                     weakAgainst.splice(index, 1)
+//                 }
+//             }
+
+//       }
+//       strongAgainstEl.innerText += ` ${sType} `
+   
+//     })
+
+//     weakAgainst.map(wType => weakAgainstEl.innerText += ` ${wType} `)
     
 }
 /**
