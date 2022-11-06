@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="icon" href="https://cdn-icons-png.flaticon.com/512/361/361998.png">
+    <title>Pokemon Team Builder</title>
+</head>
+<body class="bg-slate-800 w-full h-full">
+    <nav class="flex justify-between items-center mb-10">
+        <button class="text-white m-5 p-5 rounded-lg bg-sky-500/75 	fa fa-arrow-circle-left" onclick="history.back()" style="font-size:24px"></button>
+        <h1 class="text-white text-4xl text-center">Pokemon Team Builder</h1>
+        <input id="search-bar" onload="handleSearch()" class="placeholder:italic placeholder:text-slate-400 block bg-white border border-slate-300 rounded-md px-3 py-2 mr-2" placeholder="Search for a Pokemon..." />
+    </nav>
+    <main>
+        <div class="flex flex-col sm:flex-row flex-wrap justify-around gap-5 sm:gap-y-16" id="team-container">
+            <div class="hover:bg-gray-200 mx-auto w-11/12 md:w-1/4 h-80 bg-gray-400 rounded text-center py-32 cursor-pointer" onclick="handleInput(s-1)" id="s-1"><i>(empty slot)</i></div>
+            <div class="hover:bg-gray-200 mx-auto w-11/12 md:w-1/4 h-80 bg-gray-400 rounded text-center py-32 cursor-pointer" onclick="handleInput(s-2)" id="s-2"><i>(empty slot)</i></div>
+            <div class="hover:bg-gray-200 mx-auto w-11/12 md:w-1/4 h-80 bg-gray-400 rounded text-center py-32 cursor-pointer" onclick="handleInput(s-3)" id="s-3"><i>(empty slot)</i></div>
+            <div class="hover:bg-gray-200 mx-auto w-11/12 md:w-1/4 h-80 bg-gray-400 rounded text-center py-32 cursor-pointer" onclick="handleInput(s-4)" id="s-4"><i>(empty slot)</i></div>
+            <div class="hover:bg-gray-200 mx-auto w-11/12 md:w-1/4 h-80 bg-gray-400 rounded text-center py-32 cursor-pointer" onclick="handleInput(s-5)" id="s-5"><i>(empty slot)</i></div>
+            <div class="hover:bg-gray-200 mx-auto w-11/12 md:w-1/4 h-80 bg-gray-400 rounded text-center py-32 cursor-pointer" onclick="handleInput(s-6)" id="s-6"><i>(empty slot)</i></div>
+        </div>
+    </main>
+    <script src="pokemonTypes.js"></script>
+    <script src="scripts.js"></script>
+    <script src="team-builder-script.js"></script>
+</body>
+</html>
