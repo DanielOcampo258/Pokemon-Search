@@ -47,10 +47,11 @@ const getPokemon = (rawInput) =>{
     const pkmnImage = document.getElementById("pkm-img")
     const typeElem = document.getElementById("pkm-type")
     document.getElementById("pkm-strongAgainst").innerText = "Strong Against Type(s):  "
+   
     document.getElementById("pkm-weakAgainst").innerText = "Weak Against Type(s): "
     if (rawInput == null)
         rawInput = Math.floor(Math.random() * 905);
-   
+    
     fetch(`https://pokeapi.co/api/v2/pokemon/${rawInput}`)
     .then((response) => response.json())
     .then((data) => {
@@ -143,5 +144,3 @@ const clearIntro = () =>{
 const capitalizeFirstLetter = (string) =>{
     return string.charAt(0).toUpperCase() + string.slice(1);
 }
-
-

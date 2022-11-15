@@ -10,26 +10,281 @@
     <title>Pokemon Team Builder</title>
 </head>
 <body class="bg-slate-800 w-full h-full">
-    <nav class="flex justify-between md:justify-start items-center mb-10 md:mb-0">
+    <nav class="flex justify-between md:justify-start items-center mb-0 md:mb-0">
         <button class="text-white m-5 p-5 rounded-lg bg-sky-500/75 	fa fa-arrow-circle-left" onclick="history.back()" style="font-size:24px"></button>
         <h1 class="text-white text-4xl text-center">Pokemon Team Builder</h1>
     </nav>
     <main>
         <div id="user-input-section" class="flex flex-col items-center md:mb-16">
             <input id="search-bar" class="md:text-2xl placeholder:italic placeholder:text-slate-400 block mx-auto my-10 bg-white text-center border border-slate-300 rounded-md px-6 md:px-32 py-1.5 md:py-4" placeholder="Search for a Pokemon..." />
-            <button id="gen-btn" onclick="getPokemon(null)" class="text-white text-2xl m-5 p-2.5 rounded-lg bg-sky-500/75 w-1/4">Search</button>
-            <button id="gen-btn" onclick="getPokemon(null)" class="text-white text-2xl m-5 p-2.5 rounded-lg bg-sky-500/75 w-1/3">Generate a random Pokemon</button>
+            <button onclick="handleUserInput('search-bar')" class="text-white text-xl md:text-2xl m-2 md:m-5 p-2.5 rounded-lg bg-sky-500/75 w-1/4 lg:w-1/12">Search</button>
+            <button id="gen-btn" onclick="handleUserInput(null)" class="text-white text-xl text-center md:text-2xl m-5 p-1.5 md:p-2.5 rounded-lg bg-sky-500/75 w-2/3 md:w-1/3 lg:w-1/4">Generate a random Pokemon</button>
         </div>
-        <div class="flex sm:flex-row flex-wrap gap-x-0.5 gap-y-10 md:gap-5 sm:gap-y-16" id="team-container">
-            <div class="border-solid flex flex-col justify-center items-center border-black hover:bg-gray-200 mx-auto w-1/3 h-24 md:w-1/4 md:h-96 bg-gray-400 rounded text-center cursor-pointer" onclick="handleInput('s-1')" id="s-1"><i>(empty slot)</i> </div>
-            <div class="border-solid flex flex-col justify-center items-center border-black hover:bg-gray-200 mx-auto w-1/3 h-24 md:w-1/4 md:h-96 bg-gray-400 rounded text-center cursor-pointer" onclick="handleInput('s-2')" id="s-2"><i>(empty slot)</i></div>
-            <div class="border-solid flex flex-col justify-center items-center border-black hover:bg-gray-200 mx-auto w-1/3 h-24 md:w-1/4 md:h-96 bg-gray-400 rounded text-center cursor-pointer" onclick="handleInput('s-3')" id="s-3"><i>(empty slot)</i></div>
-            <div class="border-solid flex flex-col justify-center items-center border-black hover:bg-gray-200 mx-auto w-1/3 h-24 md:w-1/4 md:h-96 bg-gray-400 rounded text-center cursor-pointer" onclick="handleInput('s-4')" id="s-4"><i>(empty slot)</i></div>
-            <div class="border-solid flex flex-col justify-center items-center border-black hover:bg-gray-200 mx-auto w-1/3 h-24 md:w-1/4 md:h-96 bg-gray-400 rounded text-center cursor-pointer" onclick="handleInput('s-5')" id="s-5"><i>(empty slot)</i></div>
-            <div class="border-solid flex flex-col justify-center items-center border-black hover:bg-gray-200 mx-auto w-1/3 h-24 md:w-1/4 md:h-96 bg-gray-400 rounded text-center cursor-pointer" onclick="handleInput('s-6')" id="s-6"><i>(empty slot)</i></div>
+        <div class="flex sm:flex-row flex-wrap justify-around gap-x-px gap-y-10 md:gap-5 sm:gap-y-16" id="team-container">
+            <div class="border-solid flex flex-col justify-center items-center border-black hover:bg-gray-200 w-1/3 h-40 md:w-1/4 md:h-96 bg-gray-400 rounded-lg text-center cursor-pointer" onclick="selectSlot('s-1')" id="s-1"><i>(empty slot)</i></div>
+            <div class="border-solid flex flex-col justify-center items-center border-black hover:bg-gray-200 w-1/3 h-40 md:w-1/4 md:h-96 bg-gray-400 rounded-lg text-center cursor-pointer" onclick="selectSlot('s-2')" id="s-2"><i>(empty slot)</i></div>
+            <div class="border-solid flex flex-col justify-center items-center border-black hover:bg-gray-200 w-1/3 h-40 md:w-1/4 md:h-96 bg-gray-400 rounded-lg text-center cursor-pointer" onclick="selectSlot('s-3')" id="s-3"><i>(empty slot)</i></div>
+            <div class="border-solid flex flex-col justify-center items-center border-black hover:bg-gray-200 w-1/3 h-40 md:w-1/4 md:h-96 bg-gray-400 rounded-lg text-center cursor-pointer" onclick="selectSlot('s-4')" id="s-4"><i>(empty slot)</i></div>
+            <div class="border-solid flex flex-col justify-center items-center border-black hover:bg-gray-200 w-1/3 h-40 md:w-1/4 md:h-96 bg-gray-400 rounded-lg text-center cursor-pointer" onclick="selectSlot('s-5')" id="s-5"><i>(empty slot)</i></div>
+            <div class="border-solid flex flex-col justify-center items-center border-black hover:bg-gray-200 w-1/3 h-40 md:w-1/4 md:h-96 bg-gray-400 rounded-lg text-center cursor-pointer" onclick="selectSlot('s-6')" id="s-6"><i>(empty slot)</i></div>
+        </div>
+
+    
+        <div id="team-stats" class="bg-white w-11/12 h-fit mt-28 mx-auto rounded-lg flex text-center justify-evenly">
+            
+           <div id="defense-col" class="flex flex-col w-1/2 mt-4">
+            <h1 class="text-2xl">Team Defense</h1>
+            <hr class="h-6">
+                <ol class="w-full flex flex-wrap lg:gap-y-8">
+                    <li class="w-1/2 flex items-center">
+                        <img src="./icons/water.svg" class="bg-[#539DDF] w-14 h-16 rounded-lg mx-4 border-black"/>
+                        <div  class="rounded-l h-full bg-[#1da1f2]" style="width: 70%;"></div>
+                        <div  class="h-full bg-neutral-500 opacity-40 rounded-r" style="width: 30%;"></div>
+                        
+                    </li>
+                    <li class="w-1/2 flex items-center">
+                        
+                            <img src="./icons/bug.svg" class="bg-bug w-14 h-16 rounded-lg mx-4 border-black"/>
+                
+                        <div  class="rounded h-full bg-[#1da1f2]" style="width: 100%;"></div>
+                        <div  class="h-full bg-neutral-500 opacity-40 rounded-r" ></div>
+                        
+                    </li>
+                    <li class="w-1/2 flex items-center">
+                        <img src="./icons/grass.svg" class="bg-[#5FBD58] w-14 h-16 rounded-lg mx-4 border-black"/>
+                        <div  class="rounded h-full bg-[#1da1f2]" style="width: 10%;"></div>
+                        <div  class="h-full bg-neutral-500 opacity-40 rounded-r" ></div>
+                        
+                    </li>
+                    
+                    <li class="w-1/2 flex items-center">
+                        <img src="./icons/fire.svg" class="bg-[#FBA54C] w-14 h-16 rounded-lg mx-4 border-black"/>
+                        <div  class="rounded h-full bg-[#1da1f2]" style="width: 10%;"></div>
+                        <div  class="h-full bg-neutral-500 opacity-40 rounded-r" ></div>
+                        
+                    </li>
+                    <li class="w-1/2 flex items-center">
+                        <img src="./icons/steel.svg" class="bg-[#5695A3] w-14 h-16 rounded-lg mx-4 border-black"/>
+                        <div  class="rounded h-full bg-[#1da1f2]" style="width: 10%;"></div>
+                        <div  class="h-full bg-neutral-500 opacity-40 rounded-r" ></div>
+                        
+                    </li>
+                    <li class="w-1/2 flex items-center">
+                        <img src="./icons/fairy.svg" class="bg-[#EE90E6] w-14 h-16 rounded-lg mx-4 border-black"/>
+                        <div  class="rounded h-full bg-[#1da1f2]" style="width: 10%;"></div>
+                        <div  class="h-full bg-neutral-500 opacity-40 rounded-r" ></div>
+                        
+                    </li>
+                    <li class="w-1/2 flex items-center">
+                        <img src="./icons/dragon.svg" class="bg-[#0C69C8] w-14 h-16 rounded-lg mx-4 border-black"/>
+                        <div  class="rounded h-full bg-[#1da1f2]" style="width: 10%;"></div>
+                        <div  class="h-full bg-neutral-500 opacity-40 rounded-r" ></div>
+                        
+                    </li>
+
+                    <li class="w-1/2 flex items-center">
+                        <img src="./icons/ice.svg" class="bg-[#75D0C1] w-14 h-16 rounded-lg mx-4 border-black"/>
+                        <div  class="rounded h-full bg-[#1da1f2]" style="width: 10%;"></div>
+                        <div  class="h-full bg-neutral-500 opacity-40 rounded-r" ></div>
+                        
+                    </li>
+                    <li class="w-1/2 flex items-center">
+                        <img src="./icons/rock.svg" class="bg-[#C9BB8A] w-14 h-16 rounded-lg mx-4 border-black"/>
+                        <div  class="rounded h-full bg-[#1da1f2]" style="width: 10%;"></div>
+                        <div  class="h-full bg-neutral-500 opacity-40 rounded-r" ></div>
+                        
+                    </li>
+
+                    <li class="w-1/2 flex items-center">
+                        <img src="./icons/flying.svg" class="bg-[#A1BBEC] w-14 h-16 rounded-lg mx-4 border-black"/>
+                        <div  class="rounded h-full bg-[#1da1f2]" style="width: 10%;"></div>
+                        <div  class="h-full bg-neutral-500 opacity-40 rounded-r" ></div>
+                        
+                    </li>
+                    <li class="w-1/2 flex items-center">
+                        <img src="./icons/dark.svg" class="bg-[#5695A3] w-14 h-16 rounded-lg mx-4 border-black"/>
+                        <div  class="rounded h-full bg-[#1da1f2]" style="width: 10%;"></div>
+                        <div  class="h-full bg-neutral-500 opacity-40 rounded-r" ></div>
+                        
+                    </li>
+                    <li class="w-1/2 flex items-center">
+                        <img src="./icons/ghost.svg" class="bg-[#5F6DBC] w-14 h-16 rounded-lg mx-4 border-black"/>
+                        <div  class="rounded h-full bg-[#1da1f2]" style="width: 10%;"></div>
+                        <div  class="h-full bg-neutral-500 opacity-40 rounded-r" ></div>
+                        
+                    </li>
+                    <li class="w-1/2 flex items-center">
+                        <img src="./icons/psychic.svg" class="bg-[#FA8581] w-14 h-16 rounded-lg mx-4 border-black"/>
+                        <div  class="rounded h-full bg-[#1da1f2]" style="width: 10%;"></div>
+                        <div  class="h-full bg-neutral-500 opacity-40 rounded-r" ></div>
+                        
+                    </li>
+                    <li class="w-1/2 flex items-center">
+                        <img src="./icons/normal.svg" class="bg-[#A0A29F] w-14 h-16 rounded-lg mx-4 border-black"/>
+                        <div  class="rounded h-full bg-[#1da1f2]" style="width: 10%;"></div>
+                        <div  class="h-full bg-neutral-500 opacity-40 rounded-r" ></div>
+                        
+                    </li>
+                    <li class="w-1/2 flex items-center">
+                        <img src="./icons/poison.svg" class="bg-[#B763CF] w-14 h-16 rounded-lg mx-4 border-black"/>
+                        <div  class="rounded h-full bg-[#1da1f2]" style="width: 10%;"></div>
+                        <div  class="h-full bg-neutral-500 opacity-40 rounded-r" ></div>
+                        
+                    </li>
+                    <li class="w-1/2 flex items-center">
+                        <img src="./icons/electric.svg" class="bg-[#5695A3] w-14 h-16 rounded-lg mx-4 border-black"/>
+                        <div  class="rounded h-full bg-[#1da1f2]" style="width: 10%;"></div>
+                        <div  class="h-full bg-neutral-500 opacity-40 rounded-r" ></div>
+                        
+                    </li>
+                    <li class="w-1/2 flex items-center">
+                        <img src="./icons/ground.svg" class="bg-[#DA7C4D] w-14 h-16 rounded-lg mx-4 border-black"/>
+                        <div  class="rounded h-full bg-[#1da1f2]" style="width: 10%;"></div>
+                        <div  class="h-full bg-neutral-500 opacity-40 rounded-r" ></div>
+                        
+                    </li>
+                    <li class="w-1/2 flex items-center">
+                        <img src="./icons/fighting.svg" class="bg-[#D3425F] w-14 h-16 rounded-lg mx-4 border-black"/>
+                        <div  class="rounded h-full bg-[#1da1f2]" style="width: 10%;"></div>
+                        <div  class="h-full bg-neutral-500 opacity-40 rounded-r" ></div>
+                        
+                    </li>
+                   
+
+
+
+                    
+                </ol>
+           </div>
+           
+            <div id="offense-col" class="flex flex-col w-1/2 mt-4">
+                <h1 class="text-2xl">Team Offense</h1>
+                <hr class="h-6">
+                <ol class="w-full flex flex-wrap lg:gap-y-8">
+                    <li class="w-1/2 flex items-center">
+                        <img src="./icons/water.svg" class="bg-[#539DDF] w-14 h-16 rounded-lg mx-4 border-black"/>
+                        <div  class="rounded-l h-full bg-[#1da1f2]" style="width: 70%;"></div>
+                        <div  class="h-full bg-neutral-500 opacity-40 rounded-r" style="width: 30%;"></div>
+                        
+                    </li>
+                    <li class="w-1/2 flex items-center">
+                        
+                            <img src="./icons/bug.svg" class="bg-bug w-14 h-16 rounded-lg mx-4 border-black"/>
+                
+                        <div  class="rounded h-full bg-[#1da1f2]" style="width: 100%;"></div>
+                        <div  class="h-full bg-neutral-500 opacity-40 rounded-r" ></div>
+                        
+                    </li>
+                    <li class="w-1/2 flex items-center">
+                        <img src="./icons/grass.svg" class="bg-[#5FBD58] w-14 h-16 rounded-lg mx-4 border-black"/>
+                        <div  class="rounded h-full bg-[#1da1f2]" style="width: 10%;"></div>
+                        <div  class="h-full bg-neutral-500 opacity-40 rounded-r" ></div>
+                        
+                    </li>
+                    
+                    <li class="w-1/2 flex items-center">
+                        <img src="./icons/fire.svg" class="bg-[#FBA54C] w-14 h-16 rounded-lg mx-4 border-black"/>
+                        <div  class="rounded h-full bg-[#1da1f2]" style="width: 10%;"></div>
+                        <div  class="h-full bg-neutral-500 opacity-40 rounded-r" ></div>
+                        
+                    </li>
+                    <li class="w-1/2 flex items-center">
+                        <img src="./icons/steel.svg" class="bg-[#5695A3] w-14 h-16 rounded-lg mx-4 border-black"/>
+                        <div  class="rounded h-full bg-[#1da1f2]" style="width: 10%;"></div>
+                        <div  class="h-full bg-neutral-500 opacity-40 rounded-r" ></div>
+                        
+                    </li>
+                    <li class="w-1/2 flex items-center">
+                        <img src="./icons/fairy.svg" class="bg-[#EE90E6] w-14 h-16 rounded-lg mx-4 border-black"/>
+                        <div  class="rounded h-full bg-[#1da1f2]" style="width: 10%;"></div>
+                        <div  class="h-full bg-neutral-500 opacity-40 rounded-r" ></div>
+                        
+                    </li>
+                    <li class="w-1/2 flex items-center">
+                        <img src="./icons/dragon.svg" class="bg-[#0C69C8] w-14 h-16 rounded-lg mx-4 border-black"/>
+                        <div  class="rounded h-full bg-[#1da1f2]" style="width: 10%;"></div>
+                        <div  class="h-full bg-neutral-500 opacity-40 rounded-r" ></div>
+                        
+                    </li>
+
+                    <li class="w-1/2 flex items-center">
+                        <img src="./icons/ice.svg" class="bg-[#75D0C1] w-14 h-16 rounded-lg mx-4 border-black"/>
+                        <div  class="rounded h-full bg-[#1da1f2]" style="width: 10%;"></div>
+                        <div  class="h-full bg-neutral-500 opacity-40 rounded-r" ></div>
+                        
+                    </li>
+                    <li class="w-1/2 flex items-center">
+                        <img src="./icons/rock.svg" class="bg-[#C9BB8A] w-14 h-16 rounded-lg mx-4 border-black"/>
+                        <div  class="rounded h-full bg-[#1da1f2]" style="width: 10%;"></div>
+                        <div  class="h-full bg-neutral-500 opacity-40 rounded-r" ></div>
+                        
+                    </li>
+
+                    <li class="w-1/2 flex items-center">
+                        <img src="./icons/flying.svg" class="bg-[#A1BBEC] w-14 h-16 rounded-lg mx-4 border-black"/>
+                        <div  class="rounded h-full bg-[#1da1f2]" style="width: 10%;"></div>
+                        <div  class="h-full bg-neutral-500 opacity-40 rounded-r" ></div>
+                        
+                    </li>
+                    <li class="w-1/2 flex items-center">
+                        <img src="./icons/dark.svg" class="bg-[#5695A3] w-14 h-16 rounded-lg mx-4 border-black"/>
+                        <div  class="rounded h-full bg-[#1da1f2]" style="width: 10%;"></div>
+                        <div  class="h-full bg-neutral-500 opacity-40 rounded-r" ></div>
+                        
+                    </li>
+                    <li class="w-1/2 flex items-center">
+                        <img src="./icons/ghost.svg" class="bg-[#5F6DBC] w-14 h-16 rounded-lg mx-4 border-black"/>
+                        <div  class="rounded h-full bg-[#1da1f2]" style="width: 10%;"></div>
+                        <div  class="h-full bg-neutral-500 opacity-40 rounded-r" ></div>
+                        
+                    </li>
+                    <li class="w-1/2 flex items-center">
+                        <img src="./icons/psychic.svg" class="bg-[#FA8581] w-14 h-16 rounded-lg mx-4 border-black"/>
+                        <div  class="rounded h-full bg-[#1da1f2]" style="width: 10%;"></div>
+                        <div  class="h-full bg-neutral-500 opacity-40 rounded-r" ></div>
+                        
+                    </li>
+                    <li class="w-1/2 flex items-center">
+                        <img src="./icons/normal.svg" class="bg-[#A0A29F] w-14 h-16 rounded-lg mx-4 border-black"/>
+                        <div  class="rounded h-full bg-[#1da1f2]" style="width: 10%;"></div>
+                        <div  class="h-full bg-neutral-500 opacity-40 rounded-r" ></div>
+                        
+                    </li>
+                    <li class="w-1/2 flex items-center">
+                        <img src="./icons/poison.svg" class="bg-[#B763CF] w-14 h-16 rounded-lg mx-4 border-black"/>
+                        <div  class="rounded h-full bg-[#1da1f2]" style="width: 10%;"></div>
+                        <div  class="h-full bg-neutral-500 opacity-40 rounded-r" ></div>
+                        
+                    </li>
+                    <li class="w-1/2 flex items-center">
+                        <img src="./icons/electric.svg" class="bg-[#5695A3] w-14 h-16 rounded-lg mx-4 border-black"/>
+                        <div  class="rounded h-full bg-[#1da1f2]" style="width: 10%;"></div>
+                        <div  class="h-full bg-neutral-500 opacity-40 rounded-r" ></div>
+                        
+                    </li>
+                    <li class="w-1/2 flex items-center">
+                        <img src="./icons/ground.svg" class="bg-[#DA7C4D] w-14 h-16 rounded-lg mx-4 border-black"/>
+                        <div  class="rounded h-full bg-[#1da1f2]" style="width: 10%;"></div>
+                        <div  class="h-full bg-neutral-500 opacity-40 rounded-r" ></div>
+                        
+                    </li>
+                    <li class="w-1/2 flex items-center">
+                        <img src="./icons/fighting.svg" class="bg-[#D3425F] w-14 h-16 rounded-lg mx-4 border-black"/>
+                        <div  class="rounded h-full bg-[#1da1f2]" style="width: 10%;"></div>
+                        <div  class="h-full bg-neutral-500 opacity-40 rounded-r" ></div>
+                        
+                    </li>
+                   
+
+
+
+                    
+                </ol>
+            </div>
         </div>
     </main>
     <script src="pokemonTypes.js"></script>
     <script src="team-builder-script.js"></script>
+    
 </body>
 </html>

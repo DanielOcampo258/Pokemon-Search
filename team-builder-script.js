@@ -1,4 +1,4 @@
-
+const slotsArr = ["s-1","s-2","s-3","s-4","s-5","s-6"]
 class Pokemon{
     constructor(data){
       this.name = data.name
@@ -25,6 +25,11 @@ class Pokemon{
        
       
     }
+  
+  
+const handleUserInput = (input) =>{
+  input != null ? getPokemon(document.getElementById(input).value.toLowerCase()) : getPokemon(Math.floor(Math.random() * 905))
+}
 
 var selectedSlotId = ""
 var searchBar = document.getElementById("search-bar");
@@ -36,20 +41,21 @@ function(event) {
     }
 });
 
-const handleInput = (slot) =>{
+const selectSlot = (slot) =>{
   document.getElementById(slot).classList.remove("pk-set")
   selectedSlotId = slot
     const styleForSelected = "border-solid border-4"
-    const slotsArr = ["s-1","s-2","s-3","s-4","s-5","s-6"]
+  
     for(currSlot of slotsArr){
         if(currSlot != slot){
-          if(!document.getElementById(currSlot).classList.contains("pk-set")){
+          if(!document.getElementById(currSlot).classList.contains("pokemon-is-set")){
             document.getElementById(currSlot).innerHTML = "<i>(empty-slot)<i>"
             document.getElementById(currSlot).classList.remove("border-4") 
           }
         }else{
          document.getElementById(currSlot).innerText = "Selected!"
          document.getElementById(currSlot).classList.toggle("border-4")
+         document.getElementById(selectedSlotId).classList.replace("bg-white", "bg-gray-400")
          
         }
     }
@@ -63,20 +69,20 @@ const handleInput = (slot) =>{
  * Function that gets pokemon through the API
  * 
  * @param {
- * } rawInput input that the user passes, null if a pokemon is to be randomly generated, or value of the search bar
+ * } userInput input that the user passes, null if a pokemon is to be randomly generated, or value of the search bar
  */
-const getPokemon = (rawInput) =>{
+const getPokemon = (userInput) =>{
     
     
-    fetch(`https://pokeapi.co/api/v2/pokemon/${rawInput}`)
+    fetch(`https://pokeapi.co/api/v2/pokemon/${userInput}`)
     .then((response) => response.json())
     .then((data) => {
       const pokemon = new Pokemon(data)
-      
-      document.getElementById(selectedSlotId).innerHTML = `<img class="w-2/3 border-4 border-solid h-2/3" src=${pokemon.getImage()} />
-      <p class="text-3xl">${pokemon.getName()}</p>
-      <p class="text-2xl">${pokemon.getTypes()[0] + (pokemon.getTypes()[1]  != null ? ' | ' + pokemon.getTypes()[1] : "")}</p>`
-      document.getElementById(selectedSlotId).classList.add("pk-set")
+      document.getElementById(selectedSlotId).classList.replace("bg-gray-400", "bg-white")
+      document.getElementById(selectedSlotId).innerHTML = `<img class="md:w-2/3 h-2/3" src=${pokemon.getImage()} />
+      <p class="md:text-3xl">${pokemon.getName()}</p>
+      <p class="md:text-2xl">${pokemon.getTypes()[0] + (pokemon.getTypes()[1]  != null ? ' | ' + pokemon.getTypes()[1] : "")}</p>`
+      document.getElementById(selectedSlotId).classList.add("pokemon-is-set")
      
     })
     .catch((err) => {
