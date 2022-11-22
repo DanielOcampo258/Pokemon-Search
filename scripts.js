@@ -96,9 +96,9 @@ const setStrengthAndWeakness = (typesArray) =>{
 
    for (type of typesArray){
     type = type.toLowerCase()
-    weakAgainstArr = weakAgainstArr.concat(eval(type).weakAgainst)
-    strongAgainstArr = strongAgainstArr.concat(eval(type).strongAgainst)
-    resistantAgainstArr = resistantAgainstArr.concat(eval(type).resistantAgainst)
+    weakAgainstArr = weakAgainstArr.concat(`${type}`.weakAgainst)
+    strongAgainstArr = strongAgainstArr.concat(`${type}`.strongAgainst)
+    resistantAgainstArr = resistantAgainstArr.concat(`${type}`.resistantAgainst)
    }
    
    //Correct for double types

@@ -30,248 +30,248 @@
         </div>
 
     
-        <div id="team-stats" class="bg-white w-11/12 h-fit mt-28 mx-auto rounded-lg flex text-center justify-evenly">
+        <div id="team-stats" class="bg-white w-11/12 h-fit mt-28 mx-auto rounded-lg flex text-center justify-evenly px-1">
             
-           <div id="defense-col" class="flex flex-col w-1/2 mt-4">
-            <h1 class="text-2xl">Team Defense</h1>
+           <div id="strenghts-col" class="flex flex-col w-1/2 mt-4">
+            <h1 class="text-2xl border-r-2 border-black">Team Strengths</h1>
             <hr class="h-6">
                 <ol class="w-full flex flex-wrap lg:gap-y-8">
-                    <li class="w-1/2 flex items-center">
-                        <img src="./icons/water.svg" class="bg-[#539DDF] w-14 h-16 rounded-lg mx-4 border-black"/>
-                        <div  class="rounded-l h-full bg-[#1da1f2]" style="width: 70%;"></div>
-                        <div  class="h-full bg-neutral-500 opacity-40 rounded-r" style="width: 30%;"></div>
+                    <li class="w-1/2 flex items-center" id="str-water" title="Water"> 
+                    
+                        <img src="./icons/water.svg" class="bg-[#539DDF] w-14 h-16 mx-3 rounded-lg border-black"/>
+                      
+                        <div  class="rounded-l h-full bg-[#1da1f2]" ></div>
+                        <div  class="h-full bg-neutral-500 opacity-40 rounded-r" style="width: 100%;" ></div>
                         
                     </li>
-                    <li class="w-1/2 flex items-center">
+                    <li class="w-1/2 flex items-center" id="str-bug" title="Bug">
                         
-                            <img src="./icons/bug.svg" class="bg-bug w-14 h-16 rounded-lg mx-4 border-black"/>
+                            <img src="./icons/bug.svg" class="bg-bug w-14 h-16 rounded-lg mx-3 border-black"/>
                 
-                        <div  class="rounded h-full bg-[#1da1f2]" style="width: 100%;"></div>
-                        <div  class="h-full bg-neutral-500 opacity-40 rounded-r" ></div>
+                            <div  class="rounded-l h-full bg-[#1da1f2]" ></div>
+                            <div  class="h-full bg-neutral-500 opacity-40 rounded-r" style="width: 100%;" ></div>
                         
                     </li>
-                    <li class="w-1/2 flex items-center">
-                        <img src="./icons/grass.svg" class="bg-[#5FBD58] w-14 h-16 rounded-lg mx-4 border-black"/>
-                        <div  class="rounded h-full bg-[#1da1f2]" style="width: 10%;"></div>
-                        <div  class="h-full bg-neutral-500 opacity-40 rounded-r" ></div>
+                    <li class="w-1/2 flex items-center" id="str-grass" title="Grass">
+                        <img src="./icons/grass.svg" class="bg-[#5FBD58] w-14 h-16 rounded-lg mx-3 border-black" alt="Image of Pokemon Grass Type"/>
+                         <div  class="rounded-l h-full bg-[#1da1f2]" ></div>
+                        <div  class="h-full bg-neutral-500 opacity-40 rounded-r" style="width: 100%;" ></div>
                         
                     </li>
                     
-                    <li class="w-1/2 flex items-center">
-                        <img src="./icons/fire.svg" class="bg-[#FBA54C] w-14 h-16 rounded-lg mx-4 border-black"/>
-                        <div  class="rounded h-full bg-[#1da1f2]" style="width: 10%;"></div>
-                        <div  class="h-full bg-neutral-500 opacity-40 rounded-r" ></div>
+                    <li class="w-1/2 flex items-center" id="str-fire">
+                        <img src="./icons/fire.svg" class="bg-[#FBA54C] w-14 h-16 rounded-lg mx-3 border-black"/>
+                         <div  class="rounded-l h-full bg-[#1da1f2]" ></div>
+                        <div  class="h-full bg-neutral-500 opacity-40 rounded-r" style="width: 100%;" ></div>
                         
                     </li>
-                    <li class="w-1/2 flex items-center">
-                        <img src="./icons/steel.svg" class="bg-[#5695A3] w-14 h-16 rounded-lg mx-4 border-black"/>
-                        <div  class="rounded h-full bg-[#1da1f2]" style="width: 10%;"></div>
-                        <div  class="h-full bg-neutral-500 opacity-40 rounded-r" ></div>
+                    <li class="w-1/2 flex items-center" id="str-steel">
+                        <img src="./icons/steel.svg" class="bg-[#5695A3] w-14 h-16 rounded-lg mx-3 border-black"/>
+                         <div  class="rounded-l h-full bg-[#1da1f2]" ></div>
+                        <div  class="h-full bg-neutral-500 opacity-40 rounded-r" style="width: 100%;" ></div>
                         
                     </li>
-                    <li class="w-1/2 flex items-center">
-                        <img src="./icons/fairy.svg" class="bg-[#EE90E6] w-14 h-16 rounded-lg mx-4 border-black"/>
-                        <div  class="rounded h-full bg-[#1da1f2]" style="width: 10%;"></div>
-                        <div  class="h-full bg-neutral-500 opacity-40 rounded-r" ></div>
+                    <li class="w-1/2 flex items-center" id="str-fairy">
+                        <img src="./icons/fairy.svg" class="bg-[#EE90E6] w-14 h-16 rounded-lg mx-3 border-black"/>
+                         <div  class="rounded-l h-full bg-[#1da1f2]" ></div>
+                        <div  class="h-full bg-neutral-500 opacity-40 rounded-r" style="width: 100%;" ></div>
                         
                     </li>
-                    <li class="w-1/2 flex items-center">
-                        <img src="./icons/dragon.svg" class="bg-[#0C69C8] w-14 h-16 rounded-lg mx-4 border-black"/>
-                        <div  class="rounded h-full bg-[#1da1f2]" style="width: 10%;"></div>
-                        <div  class="h-full bg-neutral-500 opacity-40 rounded-r" ></div>
-                        
-                    </li>
-
-                    <li class="w-1/2 flex items-center">
-                        <img src="./icons/ice.svg" class="bg-[#75D0C1] w-14 h-16 rounded-lg mx-4 border-black"/>
-                        <div  class="rounded h-full bg-[#1da1f2]" style="width: 10%;"></div>
-                        <div  class="h-full bg-neutral-500 opacity-40 rounded-r" ></div>
-                        
-                    </li>
-                    <li class="w-1/2 flex items-center">
-                        <img src="./icons/rock.svg" class="bg-[#C9BB8A] w-14 h-16 rounded-lg mx-4 border-black"/>
-                        <div  class="rounded h-full bg-[#1da1f2]" style="width: 10%;"></div>
-                        <div  class="h-full bg-neutral-500 opacity-40 rounded-r" ></div>
+                    <li class="w-1/2 flex items-center" id="str-dragon">
+                        <img src="./icons/dragon.svg" class="bg-[#0C69C8] w-14 h-16 rounded-lg mx-3 border-black"/>
+                         <div  class="rounded-l h-full bg-[#1da1f2]" ></div>
+                        <div  class="h-full bg-neutral-500 opacity-40 rounded-r" style="width: 100%;" ></div>
                         
                     </li>
 
-                    <li class="w-1/2 flex items-center">
-                        <img src="./icons/flying.svg" class="bg-[#A1BBEC] w-14 h-16 rounded-lg mx-4 border-black"/>
-                        <div  class="rounded h-full bg-[#1da1f2]" style="width: 10%;"></div>
-                        <div  class="h-full bg-neutral-500 opacity-40 rounded-r" ></div>
+                    <li class="w-1/2 flex items-center" id="str-ice">
+                        <img src="./icons/ice.svg" class="bg-[#75D0C1] w-14 h-16 rounded-lg mx-3 border-black"/>
+                         <div  class="rounded-l h-full bg-[#1da1f2]" ></div>
+                        <div  class="h-full bg-neutral-500 opacity-40 rounded-r" style="width: 100%;" ></div>
                         
                     </li>
-                    <li class="w-1/2 flex items-center">
-                        <img src="./icons/dark.svg" class="bg-[#5695A3] w-14 h-16 rounded-lg mx-4 border-black"/>
-                        <div  class="rounded h-full bg-[#1da1f2]" style="width: 10%;"></div>
-                        <div  class="h-full bg-neutral-500 opacity-40 rounded-r" ></div>
+                    <li class="w-1/2 flex items-center" id="str-rock">
+                        <img src="./icons/rock.svg" class="bg-[#C9BB8A] w-14 h-16 rounded-lg mx-3 border-black"/>
+                         <div  class="rounded-l h-full bg-[#1da1f2]" ></div>
+                        <div  class="h-full bg-neutral-500 opacity-40 rounded-r" style="width: 100%;" ></div>
                         
                     </li>
-                    <li class="w-1/2 flex items-center">
-                        <img src="./icons/ghost.svg" class="bg-[#5F6DBC] w-14 h-16 rounded-lg mx-4 border-black"/>
-                        <div  class="rounded h-full bg-[#1da1f2]" style="width: 10%;"></div>
-                        <div  class="h-full bg-neutral-500 opacity-40 rounded-r" ></div>
+
+                    <li class="w-1/2 flex items-center" id="str-flying">
+                        <img src="./icons/flying.svg" class="bg-[#A1BBEC] w-14 h-16 rounded-lg mx-3 border-black"/>
+                         <div  class="rounded-l h-full bg-[#1da1f2]" ></div>
+                        <div  class="h-full bg-neutral-500 opacity-40 rounded-r" style="width: 100%;" ></div>
                         
                     </li>
-                    <li class="w-1/2 flex items-center">
-                        <img src="./icons/psychic.svg" class="bg-[#FA8581] w-14 h-16 rounded-lg mx-4 border-black"/>
-                        <div  class="rounded h-full bg-[#1da1f2]" style="width: 10%;"></div>
-                        <div  class="h-full bg-neutral-500 opacity-40 rounded-r" ></div>
+                    <li class="w-1/2 flex items-center" id="str-dark">
+                        <img src="./icons/dark.svg" class="bg-[#5695A3] w-14 h-16 rounded-lg mx-3 border-black"/>
+                         <div  class="rounded-l h-full bg-[#1da1f2]" ></div>
+                        <div  class="h-full bg-neutral-500 opacity-40 rounded-r" style="width: 100%;" ></div>
                         
                     </li>
-                    <li class="w-1/2 flex items-center">
-                        <img src="./icons/normal.svg" class="bg-[#A0A29F] w-14 h-16 rounded-lg mx-4 border-black"/>
-                        <div  class="rounded h-full bg-[#1da1f2]" style="width: 10%;"></div>
-                        <div  class="h-full bg-neutral-500 opacity-40 rounded-r" ></div>
+                    <li class="w-1/2 flex items-center" id="str-ghost">
+                        <img src="./icons/ghost.svg" class="bg-[#5F6DBC] w-14 h-16 rounded-lg mx-3 border-black"/>
+                         <div  class="rounded-l h-full bg-[#1da1f2]" ></div>
+                        <div  class="h-full bg-neutral-500 opacity-40 rounded-r" style="width: 100%;" ></div>
                         
                     </li>
-                    <li class="w-1/2 flex items-center">
-                        <img src="./icons/poison.svg" class="bg-[#B763CF] w-14 h-16 rounded-lg mx-4 border-black"/>
-                        <div  class="rounded h-full bg-[#1da1f2]" style="width: 10%;"></div>
-                        <div  class="h-full bg-neutral-500 opacity-40 rounded-r" ></div>
+                    <li class="w-1/2 flex items-center" id="str-psychic">
+                        <img src="./icons/psychic.svg" class="bg-[#FA8581] w-14 h-16 rounded-lg mx-3 border-black"/>
+                         <div  class="rounded-l h-full bg-[#1da1f2]" ></div>
+                        <div  class="h-full bg-neutral-500 opacity-40 rounded-r" style="width: 100%;" ></div>
                         
                     </li>
-                    <li class="w-1/2 flex items-center">
-                        <img src="./icons/electric.svg" class="bg-[#5695A3] w-14 h-16 rounded-lg mx-4 border-black"/>
-                        <div  class="rounded h-full bg-[#1da1f2]" style="width: 10%;"></div>
-                        <div  class="h-full bg-neutral-500 opacity-40 rounded-r" ></div>
+                <!--    <li class="w-1/2 flex items-center" id="str-normal">
+                        <img src="./icons/normal.svg" class="bg-[#A0A29F] w-14 h-16 rounded-lg mx-3 border-black"/>
+                         <div  class="rounded-l h-full bg-[#1da1f2]" ></div>
+                        <div  class="h-full bg-neutral-500 opacity-40 rounded-r" style="width: 100%;" ></div>
+                        
+                    </li> -->
+                    <li class="w-1/2 flex items-center" id="str-poison">
+                        <img src="./icons/poison.svg" class="bg-[#B763CF] w-14 h-16 rounded-lg mx-3 border-black"/>
+                         <div  class="rounded-l h-full bg-[#1da1f2]" ></div>
+                        <div  class="h-full bg-neutral-500 opacity-40 rounded-r" style="width: 100%;" ></div>
                         
                     </li>
-                    <li class="w-1/2 flex items-center">
-                        <img src="./icons/ground.svg" class="bg-[#DA7C4D] w-14 h-16 rounded-lg mx-4 border-black"/>
-                        <div  class="rounded h-full bg-[#1da1f2]" style="width: 10%;"></div>
-                        <div  class="h-full bg-neutral-500 opacity-40 rounded-r" ></div>
+                    <li class="w-1/2 flex items-center" id="str-electric">
+                        <img src="./icons/electric.svg" class="bg-[#5695A3] w-14 h-16 rounded-lg mx-3 border-black"/>
+                         <div  class="rounded-l h-full bg-[#1da1f2]" ></div>
+                        <div  class="h-full bg-neutral-500 opacity-40 rounded-r" style="width: 100%;" ></div>
                         
                     </li>
-                    <li class="w-1/2 flex items-center">
-                        <img src="./icons/fighting.svg" class="bg-[#D3425F] w-14 h-16 rounded-lg mx-4 border-black"/>
-                        <div  class="rounded h-full bg-[#1da1f2]" style="width: 10%;"></div>
-                        <div  class="h-full bg-neutral-500 opacity-40 rounded-r" ></div>
+                    <li class="w-1/2 flex items-center" id="str-ground">
+                        <img src="./icons/ground.svg" class="bg-[#DA7C4D] w-14 h-16 rounded-lg mx-3 border-black"/>
+                         <div  class="rounded-l h-full bg-[#1da1f2]" ></div>
+                        <div  class="h-full bg-neutral-500 opacity-40 rounded-r" style="width: 100%;" ></div>
+                        
+                    </li>
+                    <li class="w-1/2 flex items-center" id="str-fighting">
+                        <img src="./icons/fighting.svg" class="bg-[#D3425F] w-14 h-16 rounded-lg mx-3 border-black"/>
+                         <div  class="rounded-l h-full bg-[#1da1f2]" ></div>
+                        <div  class="h-full bg-neutral-500 opacity-40 rounded-r" style="width: 100%;" ></div>
                         
                     </li>
                    
-
-
 
                     
                 </ol>
            </div>
            
-            <div id="offense-col" class="flex flex-col w-1/2 mt-4">
-                <h1 class="text-2xl">Team Offense</h1>
+            <div id="weakness-col" class="flex flex-col w-1/2 mt-4">
+                <h1 class="text-2xl">Team Weaknesses</h1>
                 <hr class="h-6">
                 <ol class="w-full flex flex-wrap lg:gap-y-8">
-                    <li class="w-1/2 flex items-center">
-                        <img src="./icons/water.svg" class="bg-[#539DDF] w-14 h-16 rounded-lg mx-4 border-black"/>
-                        <div  class="rounded-l h-full bg-[#1da1f2]" style="width: 70%;"></div>
-                        <div  class="h-full bg-neutral-500 opacity-40 rounded-r" style="width: 30%;"></div>
+                    <li class="w-1/2 flex items-center" id="weak-water">
+                        <img src="./icons/water.svg" class="bg-[#539DDF] w-14 h-16 rounded-lg mx-3 border-black"/>
+                         <div  class="rounded-l h-full bg-[#1da1f2]" ></div>
+                        <div  class="h-full bg-neutral-500 opacity-40 rounded-r" style="width: 100%;" ></div>
                         
                     </li>
-                    <li class="w-1/2 flex items-center">
+                    <li class="w-1/2 flex items-center" id="weak-bug">
                         
-                            <img src="./icons/bug.svg" class="bg-bug w-14 h-16 rounded-lg mx-4 border-black"/>
+                            <img src="./icons/bug.svg" class="bg-bug w-14 h-16 rounded-lg mx-3 border-black"/>
                 
-                        <div  class="rounded h-full bg-[#1da1f2]" style="width: 100%;"></div>
-                        <div  class="h-full bg-neutral-500 opacity-40 rounded-r" ></div>
+                            <div  class="rounded-l h-full bg-[#1da1f2]" ></div>
+                            <div  class="h-full bg-neutral-500 opacity-40 rounded-r" style="width: 100%;" ></div>
                         
                     </li>
-                    <li class="w-1/2 flex items-center">
-                        <img src="./icons/grass.svg" class="bg-[#5FBD58] w-14 h-16 rounded-lg mx-4 border-black"/>
-                        <div  class="rounded h-full bg-[#1da1f2]" style="width: 10%;"></div>
-                        <div  class="h-full bg-neutral-500 opacity-40 rounded-r" ></div>
+                    <li class="w-1/2 flex items-center" id="weak-grass">
+                        <img src="./icons/grass.svg" class="bg-[#5FBD58] w-14 h-16 rounded-lg mx-3 border-black"/>
+                         <div  class="rounded-l h-full bg-[#1da1f2]" ></div>
+                        <div  class="h-full bg-neutral-500 opacity-40 rounded-r" style="width: 100%;" ></div>
                         
                     </li>
                     
-                    <li class="w-1/2 flex items-center">
-                        <img src="./icons/fire.svg" class="bg-[#FBA54C] w-14 h-16 rounded-lg mx-4 border-black"/>
-                        <div  class="rounded h-full bg-[#1da1f2]" style="width: 10%;"></div>
-                        <div  class="h-full bg-neutral-500 opacity-40 rounded-r" ></div>
+                    <li class="w-1/2 flex items-center" id="weak-fire">
+                        <img src="./icons/fire.svg" class="bg-[#FBA54C] w-14 h-16 rounded-lg mx-3 border-black"/>
+                         <div  class="rounded-l h-full bg-[#1da1f2]" ></div>
+                        <div  class="h-full bg-neutral-500 opacity-40 rounded-r" style="width: 100%;" ></div>
                         
                     </li>
-                    <li class="w-1/2 flex items-center">
-                        <img src="./icons/steel.svg" class="bg-[#5695A3] w-14 h-16 rounded-lg mx-4 border-black"/>
-                        <div  class="rounded h-full bg-[#1da1f2]" style="width: 10%;"></div>
-                        <div  class="h-full bg-neutral-500 opacity-40 rounded-r" ></div>
+                    <li class="w-1/2 flex items-center" id="weak-steel">
+                        <img src="./icons/steel.svg" class="bg-[#5695A3] w-14 h-16 rounded-lg mx-3 border-black"/>
+                         <div  class="rounded-l h-full bg-[#1da1f2]" ></div>
+                        <div  class="h-full bg-neutral-500 opacity-40 rounded-r" style="width: 100%;" ></div>
                         
                     </li>
-                    <li class="w-1/2 flex items-center">
-                        <img src="./icons/fairy.svg" class="bg-[#EE90E6] w-14 h-16 rounded-lg mx-4 border-black"/>
-                        <div  class="rounded h-full bg-[#1da1f2]" style="width: 10%;"></div>
-                        <div  class="h-full bg-neutral-500 opacity-40 rounded-r" ></div>
+                    <li class="w-1/2 flex items-center" id="weak-fairy">
+                        <img src="./icons/fairy.svg" class="bg-[#EE90E6] w-14 h-16 rounded-lg mx-3 border-black"/>
+                         <div  class="rounded-l h-full bg-[#1da1f2]" ></div>
+                        <div  class="h-full bg-neutral-500 opacity-40 rounded-r" style="width: 100%;" ></div>
                         
                     </li>
-                    <li class="w-1/2 flex items-center">
-                        <img src="./icons/dragon.svg" class="bg-[#0C69C8] w-14 h-16 rounded-lg mx-4 border-black"/>
-                        <div  class="rounded h-full bg-[#1da1f2]" style="width: 10%;"></div>
-                        <div  class="h-full bg-neutral-500 opacity-40 rounded-r" ></div>
-                        
-                    </li>
-
-                    <li class="w-1/2 flex items-center">
-                        <img src="./icons/ice.svg" class="bg-[#75D0C1] w-14 h-16 rounded-lg mx-4 border-black"/>
-                        <div  class="rounded h-full bg-[#1da1f2]" style="width: 10%;"></div>
-                        <div  class="h-full bg-neutral-500 opacity-40 rounded-r" ></div>
-                        
-                    </li>
-                    <li class="w-1/2 flex items-center">
-                        <img src="./icons/rock.svg" class="bg-[#C9BB8A] w-14 h-16 rounded-lg mx-4 border-black"/>
-                        <div  class="rounded h-full bg-[#1da1f2]" style="width: 10%;"></div>
-                        <div  class="h-full bg-neutral-500 opacity-40 rounded-r" ></div>
+                    <li class="w-1/2 flex items-center" id="weak-dragon">
+                        <img src="./icons/dragon.svg" class="bg-[#0C69C8] w-14 h-16 rounded-lg mx-3 border-black"/>
+                         <div  class="rounded-l h-full bg-[#1da1f2]" ></div>
+                        <div  class="h-full bg-neutral-500 opacity-40 rounded-r" style="width: 100%;" ></div>
                         
                     </li>
 
-                    <li class="w-1/2 flex items-center">
-                        <img src="./icons/flying.svg" class="bg-[#A1BBEC] w-14 h-16 rounded-lg mx-4 border-black"/>
-                        <div  class="rounded h-full bg-[#1da1f2]" style="width: 10%;"></div>
-                        <div  class="h-full bg-neutral-500 opacity-40 rounded-r" ></div>
+                    <li class="w-1/2 flex items-center" id="weak-ice">
+                        <img src="./icons/ice.svg" class="bg-[#75D0C1] w-14 h-16 rounded-lg mx-3 border-black"/>
+                         <div  class="rounded-l h-full bg-[#1da1f2]" ></div>
+                        <div  class="h-full bg-neutral-500 opacity-40 rounded-r" style="width: 100%;" ></div>
                         
                     </li>
-                    <li class="w-1/2 flex items-center">
-                        <img src="./icons/dark.svg" class="bg-[#5695A3] w-14 h-16 rounded-lg mx-4 border-black"/>
-                        <div  class="rounded h-full bg-[#1da1f2]" style="width: 10%;"></div>
-                        <div  class="h-full bg-neutral-500 opacity-40 rounded-r" ></div>
+                    <li class="w-1/2 flex items-center" id="weak-rock">
+                        <img src="./icons/rock.svg" class="bg-[#C9BB8A] w-14 h-16 rounded-lg mx-3 border-black"/>
+                         <div  class="rounded-l h-full bg-[#1da1f2]" ></div>
+                        <div  class="h-full bg-neutral-500 opacity-40 rounded-r" style="width: 100%;" ></div>
                         
                     </li>
-                    <li class="w-1/2 flex items-center">
-                        <img src="./icons/ghost.svg" class="bg-[#5F6DBC] w-14 h-16 rounded-lg mx-4 border-black"/>
-                        <div  class="rounded h-full bg-[#1da1f2]" style="width: 10%;"></div>
-                        <div  class="h-full bg-neutral-500 opacity-40 rounded-r" ></div>
+
+                    <li class="w-1/2 flex items-center" id="weak-flying">
+                        <img src="./icons/flying.svg" class="bg-[#A1BBEC] w-14 h-16 rounded-lg mx-3 border-black"/>
+                         <div  class="rounded-l h-full bg-[#1da1f2]" ></div>
+                        <div  class="h-full bg-neutral-500 opacity-40 rounded-r" style="width: 100%;" ></div>
                         
                     </li>
-                    <li class="w-1/2 flex items-center">
-                        <img src="./icons/psychic.svg" class="bg-[#FA8581] w-14 h-16 rounded-lg mx-4 border-black"/>
-                        <div  class="rounded h-full bg-[#1da1f2]" style="width: 10%;"></div>
-                        <div  class="h-full bg-neutral-500 opacity-40 rounded-r" ></div>
+                    <li class="w-1/2 flex items-center" id="weak-dark">
+                        <img src="./icons/dark.svg" class="bg-[#5695A3] w-14 h-16 rounded-lg mx-3 border-black"/>
+                         <div  class="rounded-l h-full bg-[#1da1f2]" ></div>
+                        <div  class="h-full bg-neutral-500 opacity-40 rounded-r" style="width: 100%;" ></div>
                         
                     </li>
-                    <li class="w-1/2 flex items-center">
-                        <img src="./icons/normal.svg" class="bg-[#A0A29F] w-14 h-16 rounded-lg mx-4 border-black"/>
-                        <div  class="rounded h-full bg-[#1da1f2]" style="width: 10%;"></div>
-                        <div  class="h-full bg-neutral-500 opacity-40 rounded-r" ></div>
+                    <li class="w-1/2 flex items-center" id="weak-ghost"> 
+                        <img src="./icons/ghost.svg" class="bg-[#5F6DBC] w-14 h-16 rounded-lg mx-3 border-black"/>
+                         <div  class="rounded-l h-full bg-[#1da1f2]" ></div>
+                        <div  class="h-full bg-neutral-500 opacity-40 rounded-r" style="width: 100%;" ></div>
                         
                     </li>
-                    <li class="w-1/2 flex items-center">
-                        <img src="./icons/poison.svg" class="bg-[#B763CF] w-14 h-16 rounded-lg mx-4 border-black"/>
-                        <div  class="rounded h-full bg-[#1da1f2]" style="width: 10%;"></div>
-                        <div  class="h-full bg-neutral-500 opacity-40 rounded-r" ></div>
+                    <li class="w-1/2 flex items-center" id="weak-psychic">
+                        <img src="./icons/psychic.svg" class="bg-[#FA8581] w-14 h-16 rounded-lg mx-3 border-black"/>
+                         <div  class="rounded-l h-full bg-[#1da1f2]" ></div>
+                        <div  class="h-full bg-neutral-500 opacity-40 rounded-r" style="width: 100%;" ></div>
                         
                     </li>
-                    <li class="w-1/2 flex items-center">
-                        <img src="./icons/electric.svg" class="bg-[#5695A3] w-14 h-16 rounded-lg mx-4 border-black"/>
-                        <div  class="rounded h-full bg-[#1da1f2]" style="width: 10%;"></div>
-                        <div  class="h-full bg-neutral-500 opacity-40 rounded-r" ></div>
+                    <!--<li class="w-1/2 flex items-center">
+                        <img src="./icons/normal.svg" class="bg-[#A0A29F] w-14 h-16 rounded-lg mx-3 border-black"/>
+                         <div  class="rounded-l h-full bg-[#1da1f2]" ></div>
+                        <div  class="h-full bg-neutral-500 opacity-40 rounded-r" style="width: 100%;" ></div>
+                        
+                    </li>-->
+                    <li class="w-1/2 flex items-center" id="weak-poison">
+                        <img src="./icons/poison.svg" class="bg-[#B763CF] w-14 h-16 rounded-lg mx-3 border-black"/>
+                         <div  class="rounded-l h-full bg-[#1da1f2]" ></div>
+                        <div  class="h-full bg-neutral-500 opacity-40 rounded-r" style="width: 100%;" ></div>
                         
                     </li>
-                    <li class="w-1/2 flex items-center">
-                        <img src="./icons/ground.svg" class="bg-[#DA7C4D] w-14 h-16 rounded-lg mx-4 border-black"/>
-                        <div  class="rounded h-full bg-[#1da1f2]" style="width: 10%;"></div>
-                        <div  class="h-full bg-neutral-500 opacity-40 rounded-r" ></div>
+                    <li class="w-1/2 flex items-center" id="weak-electric">
+                        <img src="./icons/electric.svg" class="bg-[#5695A3] w-14 h-16 rounded-lg mx-3 border-black"/>
+                         <div  class="rounded-l h-full bg-[#1da1f2]" ></div>
+                        <div  class="h-full bg-neutral-500 opacity-40 rounded-r" style="width: 100%;" ></div>
                         
                     </li>
-                    <li class="w-1/2 flex items-center">
-                        <img src="./icons/fighting.svg" class="bg-[#D3425F] w-14 h-16 rounded-lg mx-4 border-black"/>
-                        <div  class="rounded h-full bg-[#1da1f2]" style="width: 10%;"></div>
-                        <div  class="h-full bg-neutral-500 opacity-40 rounded-r" ></div>
+                    <li class="w-1/2 flex items-center" id="weak-ground">
+                        <img src="./icons/ground.svg" class="bg-[#DA7C4D] w-14 h-16 rounded-lg mx-3 border-black"/>
+                         <div  class="rounded-l h-full bg-[#1da1f2]" ></div>
+                        <div  class="h-full bg-neutral-500 opacity-40 rounded-r" style="width: 100%;" ></div>
+                        
+                    </li>
+                    <li class="w-1/2 flex items-center" id="weak-fighting">
+                        <img src="./icons/fighting.svg" class="bg-[#D3425F] w-14 h-16 rounded-lg mx-3 border-black"/>
+                         <div  class="rounded-l h-full bg-[#1da1f2]" ></div>
+                        <div  class="h-full bg-neutral-500 opacity-40 rounded-r" style="width: 100%;" ></div>
                         
                     </li>
                    
